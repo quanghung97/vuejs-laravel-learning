@@ -9,6 +9,7 @@
         <div id="app">
             <example-component></example-component>
             <my-component></my-component>
+            <conditional-rendering></conditional-rendering>
         </div>
         <script src="/js/app.js"></script>
     </body>
