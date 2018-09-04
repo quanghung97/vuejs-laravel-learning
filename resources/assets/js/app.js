@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('my-component', require('./components/MyComponent.vue'));
 Vue.component('conditional-rendering', require('./components/ConditionalRendering.vue'));
+Vue.component('conditional-rendering-v-else-if', require('./components/ConditionalRenderingVelseIf.vue'));
 
 const app = new Vue({
     el: '#app'
