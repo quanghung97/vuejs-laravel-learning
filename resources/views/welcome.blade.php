@@ -12,6 +12,7 @@
             <conditional-rendering></conditional-rendering>
             <conditional-rendering-v-else-if></conditional-rendering-v-else-if>
             <list-component></list-component>
+            <conditional-rendering-v-for-if><conditional-rendering-v-for-if/>
         </div>
         <script src="/js/app.js"></script>
     </body>

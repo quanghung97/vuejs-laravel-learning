@@ -13908,6 +13908,7 @@ Vue.component('my-component', __webpack_require__(48));
 Vue.component('conditional-rendering', __webpack_require__(51));
 Vue.component('conditional-rendering-v-else-if', __webpack_require__(54));
 Vue.component('list-component', __webpack_require__(57));
+Vue.component('conditional-rendering-v-for-if', __webpack_require__(60));
 
 var app = new Vue({
   el: '#app'
@@ -48041,6 +48042,134 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-db8b0450", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(40)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ConditionalRenderingVforIf.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1e69abcd", Component.options)
+  } else {
+    hotAPI.reload("data-v-1e69abcd", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            todos: [{
+                name: 'to do 1',
+                isComplete: true
+            }, {
+                name: 'to do 2',
+                isComplete: false
+            }, {
+                name: 'to do 3',
+                isComplete: true
+            }, {
+                name: 'to do 4',
+                isComplete: false
+            }]
+        };
+    },
+
+    computed: {
+        listCompleteTodo: function listCompleteTodo() {
+            return this.todos.filter(function (item) {
+                return item.isComplete === false;
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "conditional-rendering-v-for-if" }, [
+    _c(
+      "ul",
+      _vm._l(_vm.listCompleteTodo, function(todo) {
+        return _c("li", [
+          _vm._v(
+            "\n          " +
+              _vm._s(todo.name) +
+              " - " +
+              _vm._s(todo.isComplete) +
+              "\n        "
+          )
+        ])
+      })
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1e69abcd", module.exports)
   }
 }
 
