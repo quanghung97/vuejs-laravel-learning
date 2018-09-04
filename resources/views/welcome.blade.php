@@ -11,6 +11,7 @@
             <my-component></my-component>
             <conditional-rendering></conditional-rendering>
             <conditional-rendering-v-else-if></conditional-rendering-v-else-if>
+            <list-component></list-component>
         </div>
         <script src="/js/app.js"></script>
     </body>
