@@ -47492,12 +47492,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             message: 'This is my first component using binding data',
-            text: 'this is text'
+            text: 'this is text',
+            content: {
+                type: 'name',
+                text: 'abcxyz'
+            }
         };
     },
 
@@ -47514,16 +47527,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         changeMesage: function changeMesage() {
             this.message = 'this is new message';
+        },
+        changeContent: function changeContent() {
+            this.content.text = 'this is new content';
+        },
+        changeType: function changeType() {
+            this.content.type = 'changed type';
         }
     },
     computed: {
         reverseMessage: function reverseMessage() {
             return this.message.split('').reverse().join('');
+        },
+        getType: function getType() {
+            return this.message.type;
+        },
+        getText: function getText() {
+            return this.message.text;
         }
     },
     watch: {
-        message: function message() {
-            console.log('message changed');
+        // message() {
+        //     console.log('message changed')
+        // },
+        // message: {
+        //     handler() {
+        //         console.log('something changed')
+        //     },
+        //     deep: true
+        // }
+        'content.text': function contentText(newVal, oldVal) {
+            console.log('watching ' + newVal + ' and ' + oldVal);
+        },
+        'content.type': function contentType(newVal, oldVal) {
+            console.log('watching ' + newVal + ' and ' + oldVal);
         }
     }
 });
@@ -47561,6 +47598,26 @@ var render = function() {
         { attrs: { type: "button" }, on: { click: _vm.changeMesage } },
         [_vm._v("Change message")]
       )
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", [
+      _c("div", [_vm._v(_vm._s(_vm.content.text))]),
+      _vm._v(" "),
+      _c("div", [
+        _c("button", { on: { click: _vm.changeContent } }, [
+          _vm._v("Change Content")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", [_vm._v(_vm._s(_vm.content.type))]),
+      _vm._v(" "),
+      _c("div", [
+        _c("button", { on: { click: _vm.changeType } }, [_vm._v("Change Text")])
+      ])
     ])
   ])
 }

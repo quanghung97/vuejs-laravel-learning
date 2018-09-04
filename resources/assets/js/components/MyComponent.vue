@@ -17,6 +17,15 @@
         <div>
             <button @click="changeMesage" type="button">Change message</button>
         </div>
+        <br />
+        <br />
+
+        <div>
+            <div>{{ content.text }}</div>
+            <div><button @click="changeContent">Change Content</button></div>
+            <div>{{ content.type }}</div>
+            <div><button @click="changeType">Change Text</button></div>
+        </div>
     </div>
 </template>
 
@@ -25,7 +34,11 @@
         data() {
             return {
                 message: 'This is my first component using binding data',
-                text: 'this is text'
+                text: 'this is text',
+                content : {
+                    type: 'name',
+                    text: 'abcxyz'
+                }
             };
         },
         methods: {
@@ -43,17 +56,41 @@
             },
             changeMesage() {
                 this.message = 'this is new message'
+            },
+            changeContent() {
+                this.content.text = 'this is new content'
+            },
+            changeType() {
+                this.content.type = 'changed type'
             }
         },
         computed: {
             reverseMessage() {
                 return this.message.split('').reverse().join('');
+            },
+            getType() {
+                return this.message.type;
+            },
+            getText() {
+                return this.message.text;
             }
         },
         watch: {
-            message() {
-                console.log('message changed')
-            }
+            // message() {
+            //     console.log('message changed')
+            // },
+            // message: {
+            //     handler() {
+            //         console.log('something changed')
+            //     },
+            //     deep: true
+            // }
+           'content.text' : function(newVal, oldVal) {
+               console.log('watching ' + newVal + ' and ' + oldVal);
+           },
+           'content.type' : function(newVal, oldVal) {
+               console.log('watching ' + newVal + ' and ' + oldVal);
+           }
         }
     }
 </script>
