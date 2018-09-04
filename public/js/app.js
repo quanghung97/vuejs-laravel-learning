@@ -47487,6 +47487,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47506,6 +47507,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         saySomeThing: function saySomeThing(text) {
             var text = text.toUpperCase();
             return text;
+        }
+    },
+    computed: {
+        reverseMessage: function reverseMessage() {
+            return this.message.split('').reverse().join('');
         }
     }
 });
@@ -47531,7 +47537,9 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", [_vm._v("\n        " + _vm._s(_vm.sayGoodbye()) + "\n    ")])
+    _c("div", [_vm._v("\n        " + _vm._s(_vm.sayGoodbye()) + "\n    ")]),
+    _vm._v(" "),
+    _c("div", [_vm._v(_vm._s(_vm.reverseMessage))])
   ])
 }
 var staticRenderFns = []

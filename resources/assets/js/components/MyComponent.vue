@@ -12,6 +12,7 @@
         <div>
             {{ sayGoodbye() }}
         </div>
+        <div>{{ reverseMessage }}</div>
     </div>
 </template>
 
@@ -35,6 +36,11 @@
             saySomeThing(text) {
                 var text = text.toUpperCase();
                 return text;
+            }
+        },
+        computed: {
+            reverseMessage() {
+                return this.message.split('').reverse().join('');
             }
         }
     }
