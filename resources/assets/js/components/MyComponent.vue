@@ -4,6 +4,9 @@
             {{ message }}
         </div>
         <div>
+            {{ saySomeThing(text) }}
+        </div>
+        <div>
             <button v-on:click="sayHello" type="button">button</button>
         </div>
         <div>
@@ -16,7 +19,8 @@
     export default {
         data() {
             return {
-                message: 'This is my first component using binding data'
+                message: 'This is my first component using binding data',
+                text: 'this is text'
             };
         },
         methods: {
@@ -27,6 +31,10 @@
                 return (
                     'goodbye'
                 )
+            },
+            saySomeThing(text) {
+                var text = text.toUpperCase();
+                return text;
             }
         }
     }
