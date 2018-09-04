@@ -47980,6 +47980,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -48004,19 +48008,29 @@ var render = function() {
   return _c("div", { staticClass: "list-rendering" }, [
     _c(
       "ul",
-      _vm._l(_vm.myInfo, function(value, key, index) {
-        return _c("li", [
-          _vm._v(
-            "\n            " +
-              _vm._s(key) +
-              " - " +
-              _vm._s(value) +
-              " - index " +
-              _vm._s(index) +
-              "\n        "
-          )
-        ])
-      })
+      [
+        _vm._l(_vm.myInfo, function(value, key, index) {
+          return _c("li", [
+            _vm._v(
+              "\n            " +
+                _vm._s(key) +
+                " - " +
+                _vm._s(value) +
+                " - index " +
+                _vm._s(index) +
+                "\n        "
+            )
+          ])
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          _vm._l(100, function(n) {
+            return _c("span", [_vm._v(_vm._s(n) + " ")])
+          })
+        )
+      ],
+      2
     )
   ])
 }
