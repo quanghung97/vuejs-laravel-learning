@@ -47488,6 +47488,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47507,11 +47511,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         saySomeThing: function saySomeThing(text) {
             var text = text.toUpperCase();
             return text;
+        },
+        changeMesage: function changeMesage() {
+            this.message = 'this is new message';
         }
     },
     computed: {
         reverseMessage: function reverseMessage() {
             return this.message.split('').reverse().join('');
+        }
+    },
+    watch: {
+        message: function message() {
+            console.log('message changed');
         }
     }
 });
@@ -47539,7 +47551,17 @@ var render = function() {
     _vm._v(" "),
     _c("div", [_vm._v("\n        " + _vm._s(_vm.sayGoodbye()) + "\n    ")]),
     _vm._v(" "),
-    _c("div", [_vm._v(_vm._s(_vm.reverseMessage))])
+    _c("div", [_vm._v(_vm._s(_vm.reverseMessage))]),
+    _vm._v(" "),
+    _c("h2", [_vm._v("CLick button change message")]),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "button",
+        { attrs: { type: "button" }, on: { click: _vm.changeMesage } },
+        [_vm._v("Change message")]
+      )
+    ])
   ])
 }
 var staticRenderFns = []

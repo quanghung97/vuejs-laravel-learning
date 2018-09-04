@@ -13,6 +13,10 @@
             {{ sayGoodbye() }}
         </div>
         <div>{{ reverseMessage }}</div>
+        <h2>CLick button change message</h2>
+        <div>
+            <button @click="changeMesage" type="button">Change message</button>
+        </div>
     </div>
 </template>
 
@@ -36,11 +40,19 @@
             saySomeThing(text) {
                 var text = text.toUpperCase();
                 return text;
+            },
+            changeMesage() {
+                this.message = 'this is new message'
             }
         },
         computed: {
             reverseMessage() {
                 return this.message.split('').reverse().join('');
+            }
+        },
+        watch: {
+            message() {
+                console.log('message changed')
             }
         }
     }
