@@ -32,8 +32,10 @@
         },
         methods: {
             // Process event emitted from child
-            childrenSelectUser(user) {
+            childrenSelectUser(user, number, string) {
                 console.log(user);//bắt sự kiện thông qua methods
+                console.log(number);
+                console.log(string);
                 this.userSelectedFromChild = user;//gán data bằng object
             }
         }

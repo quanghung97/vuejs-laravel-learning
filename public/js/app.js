@@ -48256,8 +48256,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         // Process event emitted from child
-        childrenSelectUser: function childrenSelectUser(user) {
+        childrenSelectUser: function childrenSelectUser(user, number, string) {
             console.log(user); //bắt sự kiện thông qua methods
+            console.log(number);
+            console.log(string);
             this.userSelectedFromChild = user; //gán data bằng object
         }
     }
@@ -48343,14 +48345,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            userData: __WEBPACK_IMPORTED_MODULE_0__data_json___default.a
+            userData: __WEBPACK_IMPORTED_MODULE_0__data_json___default.a,
+            number: 129,
+            string: 'dsadas'
         };
     },
 
     methods: {
         // This line below
         selectUser: function selectUser(user) {
-            this.$emit('userSelected', user); //send to parent with event userSelected have data is object user
+            this.$emit('userSelected', user, this.number, this.string); //send to parent with event userSelected have data is object user
         }
     }
 });

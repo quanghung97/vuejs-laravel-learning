@@ -23,13 +23,15 @@
     export default {
         data() {
             return {
-                userData: data
+                userData: data,
+                number: 129,
+                string: 'dsadas'
             }
         },
         methods: {
             // This line below
             selectUser(user) {
-                this.$emit('userSelected', user)//send to parent with event userSelected have data is object user
+                this.$emit('userSelected', user, this.number, this.string)//send to parent with event userSelected have data is object user
             }
         }
     }
