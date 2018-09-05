@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/life-cycle', function () {
+    return view('lifecycle');
+});

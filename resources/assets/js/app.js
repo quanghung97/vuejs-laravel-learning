@@ -22,6 +22,7 @@ Vue.component('conditional-rendering-v-else-if', require('./components/Condition
 Vue.component('list-component', require('./components/ListComponent.vue'));
 Vue.component('conditional-rendering-v-for-if', require('./components/ConditionalRenderingVforIf.vue'))
 Vue.component('user-dashboard', require('./components/UserDashboard.vue'));
+Vue.component('life-cycle', require('./components/LifeCycle.vue'));
 
 const app = new Vue({
     el: '#app'
