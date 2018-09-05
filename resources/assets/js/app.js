@@ -25,6 +25,7 @@ Vue.component('user-dashboard', require('./components/UserDashboard.vue'));
 Vue.component('life-cycle', require('./components/LifeCycle.vue'));
 Vue.component('force-update', require('./components/ForceUpdate.vue'));
 Vue.component('binding-html', require('./components/BindingHTML.vue'));
+Vue.component('vmodel-binding', require('./components/VModelBinding.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -14022,6 +14022,7 @@ Vue.component('user-dashboard', __webpack_require__(58));
 Vue.component('life-cycle', __webpack_require__(73));
 Vue.component('force-update', __webpack_require__(76));
 Vue.component('binding-html', __webpack_require__(79));
+Vue.component('vmodel-binding', __webpack_require__(82));
 
 var app = new Vue({
   el: '#app'
@@ -49043,6 +49044,337 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-40a8016e", module.exports)
+  }
+}
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(83)
+/* template */
+var __vue_template__ = __webpack_require__(84)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/VModelBinding.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c55405ea", Component.options)
+  } else {
+    hotAPI.reload("data-v-c55405ea", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            message: '',
+            check: false,
+            radio: '',
+            select: '',
+            values: {
+                one: 'This is One',
+                two: 'This is Two'
+            },
+            placeholder: 'this is placeholder',
+            value: 'this is value'
+        };
+    }
+});
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "v-model-binding" }, [
+    _c("div", { staticClass: "text" }, [
+      _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c("input", {
+        attrs: { type: "text", placeholder: _vm.placeholder, name: "" },
+        domProps: { value: _vm.value }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model.number",
+            value: _vm.message,
+            expression: "message",
+            modifiers: { number: true }
+          }
+        ],
+        attrs: { type: "number", name: "" },
+        domProps: { value: _vm.message },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.message = _vm._n($event.target.value)
+          },
+          blur: function($event) {
+            _vm.$forceUpdate()
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model.trim",
+            value: _vm.message,
+            expression: "message",
+            modifiers: { trim: true }
+          }
+        ],
+        attrs: { type: "number", name: "" },
+        domProps: { value: _vm.message },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.message = $event.target.value.trim()
+          },
+          blur: function($event) {
+            _vm.$forceUpdate()
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model.lazy",
+            value: _vm.message,
+            expression: "message",
+            modifiers: { lazy: true }
+          }
+        ],
+        attrs: { type: "text", name: "" },
+        domProps: { value: _vm.message },
+        on: {
+          change: function($event) {
+            _vm.message = $event.target.value
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.check,
+            expression: "check"
+          }
+        ],
+        attrs: { type: "checkbox", name: "" },
+        domProps: {
+          checked: Array.isArray(_vm.check)
+            ? _vm._i(_vm.check, null) > -1
+            : _vm.check
+        },
+        on: {
+          change: function($event) {
+            var $$a = _vm.check,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false
+            if (Array.isArray($$a)) {
+              var $$v = null,
+                $$i = _vm._i($$a, $$v)
+              if ($$el.checked) {
+                $$i < 0 && (_vm.check = $$a.concat([$$v]))
+              } else {
+                $$i > -1 &&
+                  (_vm.check = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+              }
+            } else {
+              _vm.check = $$c
+            }
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.radio,
+            expression: "radio"
+          }
+        ],
+        attrs: { type: "radio", value: "one" },
+        domProps: { checked: _vm._q(_vm.radio, "one") },
+        on: {
+          change: function($event) {
+            _vm.radio = "one"
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.radio,
+            expression: "radio"
+          }
+        ],
+        attrs: { type: "radio", value: "two" },
+        domProps: { checked: _vm._q(_vm.radio, "two") },
+        on: {
+          change: function($event) {
+            _vm.radio = "two"
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-form" }, [
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.select,
+              expression: "select"
+            }
+          ],
+          on: {
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.select = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { disabled: "" } }, [_vm._v("Choose one")]),
+          _vm._v(" "),
+          _c("option", { domProps: { value: _vm.values.one } }, [
+            _vm._v("One")
+          ]),
+          _vm._v(" "),
+          _c("option", { domProps: { value: _vm.values.two } }, [_vm._v("Two")])
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c55405ea", module.exports)
   }
 }
 

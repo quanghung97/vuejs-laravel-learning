@@ -30,3 +30,7 @@ Route::get('/force-update', function () {
 Route::get('/binding-html', function () {
     return view('bindinghtml');
 });
+
+Route::get('/v-model-binding', function () {
+    return view('vmodelbinding');
+});
