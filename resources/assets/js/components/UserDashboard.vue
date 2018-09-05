@@ -2,8 +2,8 @@
     <div class="user-dashboard">
         <div class="list-user-comp">
             <h4>List User</h4>
-            <!-- name function child sent -->
-            <ListUser @userSelected="childrenSelectUser"></ListUser>
+            <!-- name function child sent cac data cũ và thêm something argument -->
+            <ListUser @selectUser="selectUser(...arguments, 'something')"></ListUser>
 
         </div>
         <hr>
@@ -32,10 +32,12 @@
         },
         methods: {
             // Process event emitted from child
-            childrenSelectUser(user, number, string) {
+            selectUser(user, number, string, something) {
+                //nhận lại đầy đủ arguments
                 console.log(user);//bắt sự kiện thông qua methods
                 console.log(number);
                 console.log(string);
+                console.log(asas);
                 this.userSelectedFromChild = user;//gán data bằng object
             }
         }

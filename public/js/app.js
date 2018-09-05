@@ -48256,10 +48256,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         // Process event emitted from child
-        childrenSelectUser: function childrenSelectUser(user, number, string) {
+        selectUser: function selectUser(user, number, string, something) {
+            //nhận lại đầy đủ arguments
             console.log(user); //bắt sự kiện thông qua methods
             console.log(number);
             console.log(string);
+            console.log(asas);
             this.userSelectedFromChild = user; //gán data bằng object
         }
     }
@@ -48354,7 +48356,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         // This line below
         selectUser: function selectUser(user) {
-            this.$emit('userSelected', user, this.number, this.string); //send to parent with event userSelected have data is object user
+            this.$emit('selectUser', user, this.number, this.string); //send to parent with event selectUser have data is object user
         }
     }
 });
@@ -48596,7 +48598,16 @@ var render = function() {
       [
         _c("h4", [_vm._v("List User")]),
         _vm._v(" "),
-        _c("ListUser", { on: { userSelected: _vm.childrenSelectUser } })
+        _c("ListUser", {
+          on: {
+            selectUser: function($event) {
+              var i = arguments.length,
+                argsArray = Array(i)
+              while (i--) argsArray[i] = arguments[i]
+              _vm.selectUser.apply(void 0, argsArray.concat(["something"]))
+            }
+          }
+        })
       ],
       1
     ),

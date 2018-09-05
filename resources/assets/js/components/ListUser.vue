@@ -31,7 +31,7 @@
         methods: {
             // This line below
             selectUser(user) {
-                this.$emit('userSelected', user, this.number, this.string)//send to parent with event userSelected have data is object user
+                this.$emit('selectUser', user, this.number, this.string)//send to parent with event selectUser have data is object user
             }
         }
     }
