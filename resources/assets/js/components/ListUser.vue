@@ -9,7 +9,7 @@
             <tbody>
                 <tr v-for="user in userData">
                     <!-- This line below -->
-                    <td><a @click.capture="selectUser(user)">{{ user.name.title }} - {{ user.name.last }} {{ user.name.first }}</a></td>
+                    <td><a @click="selectUser(user)">{{ user.name.title }} - {{ user.name.last }} {{ user.name.first }}</a></td>
                     <td>{{ user.location.city }}</td>
                     <td>{{ user.dob }}</td>
                 </tr>
@@ -29,7 +29,7 @@
         methods: {
             // This line below
             selectUser(user) {
-                this.$emit('userSelected', user)
+                this.$emit('userSelected', user)//send to parent with event userSelected have data is object user
             }
         }
     }

@@ -48236,6 +48236,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -48244,10 +48248,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         ListUser: __WEBPACK_IMPORTED_MODULE_0__ListUser_vue___default.a,
         UserDetail: __WEBPACK_IMPORTED_MODULE_1__UserDetail_vue___default.a
     },
+    data: function data() {
+        return {
+            userSelectedFromChild: {} //data want send to UserDetail components
+        };
+    },
+
     methods: {
         // Process event emitted from child
         childrenSelectUser: function childrenSelectUser(user) {
-            console.log(user);
+            console.log(user); //bắt sự kiện thông qua methods
+            this.userSelectedFromChild = user; //gán data bằng object
         }
     }
 });
@@ -48339,7 +48350,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         // This line below
         selectUser: function selectUser(user) {
-            this.$emit('userSelected', user);
+            this.$emit('userSelected', user); //send to parent with event userSelected have data is object user
         }
     }
 });
@@ -48365,7 +48376,7 @@ var render = function() {
                 "a",
                 {
                   on: {
-                    "!click": function($event) {
+                    click: function($event) {
                       _vm.selectUser(user)
                     }
                   }
@@ -48473,8 +48484,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        userDetailInfo: {
+            type: Object
+        }
+    }
+    // You can also write props: ['userDetailInfo'] but the above is recommended
+});
 
 /***/ }),
 /* 65 */
@@ -48485,7 +48520,51 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "user-detail" }, [
-    _vm._v("\n    This is user detail\n")
+    Object.keys(_vm.userDetailInfo).length !== 0
+      ? _c("div", { staticClass: "user-detail-container" }, [
+          _c("div", { staticClass: "user-name" }, [
+            _vm._v(
+              "\n            Name: " +
+                _vm._s(_vm.userDetailInfo.name.last) +
+                " " +
+                _vm._s(_vm.userDetailInfo.name.first) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-email" }, [
+            _vm._v(
+              "\n            Email: " +
+                _vm._s(_vm.userDetailInfo.email) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-dob" }, [
+            _vm._v(
+              "\n            DOB: " +
+                _vm._s(_vm.userDetailInfo.dob) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-gender" }, [
+            _vm._v(
+              "\n            Gender: " +
+                _vm._s(_vm.userDetailInfo.gender) +
+                "\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-address" }, [
+            _vm._v(
+              "\n            Address: " +
+                _vm._s(_vm.userDetailInfo.location.city) +
+                "\n        "
+            )
+          ])
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -48523,7 +48602,13 @@ var render = function() {
     _c(
       "div",
       { staticClass: "user-detail-comp" },
-      [_c("h4", [_vm._v("User Detail")]), _vm._v(" "), _c("UserDetail")],
+      [
+        _c("h4", [_vm._v("User Detail")]),
+        _vm._v(" "),
+        _c("UserDetail", {
+          attrs: { userDetailInfo: _vm.userSelectedFromChild }
+        })
+      ],
       1
     )
   ])
