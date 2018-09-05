@@ -14020,6 +14020,7 @@ Vue.component('list-component', __webpack_require__(52));
 Vue.component('conditional-rendering-v-for-if', __webpack_require__(55));
 Vue.component('user-dashboard', __webpack_require__(58));
 Vue.component('life-cycle', __webpack_require__(73));
+Vue.component('force-update', __webpack_require__(76));
 
 var app = new Vue({
   el: '#app'
@@ -48745,6 +48746,147 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-429dfbba", module.exports)
+  }
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(77)
+/* template */
+var __vue_template__ = __webpack_require__(78)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ForceUpdate.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-c6e1c5a6", Component.options)
+  } else {
+    hotAPI.reload("data-v-c6e1c5a6", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            person: {
+                name: 'Edson'
+            }
+        };
+    },
+
+    methods: {
+        changeName: function changeName() {
+            this.person.name = 'Arantes';
+        },
+        changeNickname: function changeNickname() {
+            this.person.nickname = Math.random().toString(36).substring(7);
+            this.$forceUpdate(); //không khai báo trên data or Vue.set thì ko phải dạng dữ liệu reactive nên sẽ ko render ra ngoài mặc dù event data vẫn load được
+        },
+        changeNicknameProperly: function changeNicknameProperly() {
+            //nếu click đoạn này trước thì sẽ có data person.nickname rồi và dạng reactive nền ko cần forceUpdate
+            Vue.set(this.person, 'nickname', 'Louis'); // object , attribute, value
+        }
+    }
+});
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "force-update" }, [
+    _c("div", [
+      _vm._v("\n        Name: " + _vm._s(_vm.person.name) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _vm._v("\n        Nick name: " + _vm._s(_vm.person.nickname) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("button", { on: { click: _vm.changeName } }, [_vm._v("Change Name")])
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("button", { on: { click: _vm.changeNickname } }, [
+        _vm._v("Change Nick Name")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("button", { on: { click: _vm.changeNicknameProperly } }, [
+        _vm._v("Change NIck name properly")
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-c6e1c5a6", module.exports)
   }
 }
 

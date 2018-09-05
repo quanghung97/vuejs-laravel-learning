@@ -22,3 +22,7 @@ Route::get('/dashboard', function () {
 Route::get('/life-cycle', function () {
     return view('lifecycle');
 });
+
+Route::get('/force-update', function () {
+    return view('forceupdate');
+});
