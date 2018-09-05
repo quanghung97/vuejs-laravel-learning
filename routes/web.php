@@ -26,3 +26,7 @@ Route::get('/life-cycle', function () {
 Route::get('/force-update', function () {
     return view('forceupdate');
 });
+
+Route::get('/binding-html', function () {
+    return view('bindinghtml');
+});

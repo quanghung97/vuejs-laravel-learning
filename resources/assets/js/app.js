@@ -24,6 +24,7 @@ Vue.component('conditional-rendering-v-for-if', require('./components/Conditiona
 Vue.component('user-dashboard', require('./components/UserDashboard.vue'));
 Vue.component('life-cycle', require('./components/LifeCycle.vue'));
 Vue.component('force-update', require('./components/ForceUpdate.vue'));
+Vue.component('binding-html', require('./components/BindingHTML.vue'));
 
 const app = new Vue({
     el: '#app'

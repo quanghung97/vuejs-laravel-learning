@@ -10485,3 +10485,15 @@ a.text-dark:focus {
   width: 100%;
 }
 
+.active {
+  color: red;
+}
+
+.hide {
+  display: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
