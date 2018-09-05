@@ -34,3 +34,9 @@ Route::get('/binding-html', function () {
 Route::get('/v-model-binding', function () {
     return view('vmodelbinding');
 });
+
+Route::get('/api-calling', function () {
+    return view('apicalling');
+});
+
+Route::resource('products', 'ProductController');

@@ -26,6 +26,7 @@ Vue.component('life-cycle', require('./components/LifeCycle.vue'));
 Vue.component('force-update', require('./components/ForceUpdate.vue'));
 Vue.component('binding-html', require('./components/BindingHTML.vue'));
 Vue.component('vmodel-binding', require('./components/VModelBinding.vue'));
+Vue.component('api-calling', require('./components/ApiCalling.vue'));
 
 const app = new Vue({
     el: '#app'
